@@ -1,1 +1,130 @@
-/* Other rules */
+/* ------------------- */
+/* Global Rules */
+/* ------------------- */
+
+:root {
+  --grey-text: #999999;
+  --vinted-color: #05aeb6;
+  --light-grey: #f5f6f7;
+  --darker-grey: #6c6c6d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1185px;
+  margin: 0 auto;
+}
+
+img {
+  object-fit: cover;
+}
+
+/* ------------------- */
+/* Header */
+/* ------------------- */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+header img {
+  width: 75px;
+}
+
+header > form > div {
+  background-color: var(--light-grey);
+  border-radius: 5px;
+  height: 30px;
+  width: 420px;
+  padding: 10px 15px;
+}
+
+header input {
+  background-color: inherit;
+  border: none;
+  height: 100%;
+}
+
+header button {
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+header > button {
+  background-color: var(--vinted-color);
+  color: white;
+  border: none;
+}
+
+header > div button {
+  background-color: white;
+  color: var(--vinted-color);
+  border: 1px solid var(--vinted-color);
+}
+
+header > div button:first-child {
+  margin-right: 15px;
+}
+
+/* ------------------- */
+/* Main */
+/* ------------------- */
+
+/* Hero banner */
+main > div:first-child {
+  position: relative;
+}
+
+main > div:first-child img {
+  width: 100%;
+  height: 415px;
+}
+
+main > div:first-child > div {
+  position: absolute;
+  top: 80px;
+  left: 40px;
+  height: 260px;
+  width: 400px;
+  background-color: #fff;
+}
+
+/* ------------------- */
+/* Footer */
+/* ------------------- */
+footer {
+  height: 80px;
+  border-top: solid 1px var(--vinted-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+footer img {
+  width: 35px;
+  margin-right: 15px;
+}
+
+footer a,
+footer p {
+  color: inherit;
+  font-size: 16px;
+  margin-bottom: 0;
+}
+
+footer a {
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: var(--vinted-color);
+}
