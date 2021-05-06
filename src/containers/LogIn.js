@@ -5,6 +5,7 @@ import axios from "axios";
 const LogIn = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [unauthorized, setUnauthorized] = useState(false);
 
   const history = useHistory();
 
@@ -16,28 +17,33 @@ const LogIn = ({ setUser }) => {
         { email: email, password: password }
       );
       const token = response.data.token;
-      if (token) {
-        setUser(token);
-        history.push("/");
-      } else {
-        console.log("pas de token, pas d'authentification"); //ne s'affiche pas dans la console
-      }
+      setUser(token);
+      history.push("/");
     } catch (error) {
-      console.log(error.message);
+      console.log(error.response);
+      if (error.response.data.message === "Unauthorized") {
+        setUnauthorized(true);
+      }
     }
   };
 
   return (
     <main>
       <form onSubmit={handleSubmit}>
+        <h3>Se connecter</h3>
+        {unauthorized && (
+          <p>Nom d'utilisateur et/ou mot de passe invalide(s) </p>
+        )}
         <input
           type="email"
           value={email}
+          placeholder="Adresse email"
           onChange={(event) => setEmail(event.target.value)}
         />
         <input
           type="password"
           value={password}
+          placeholder="Mot de Passe"
           onChange={(event) => setPassword(event.target.value)}
         />
         <input type="submit" />
