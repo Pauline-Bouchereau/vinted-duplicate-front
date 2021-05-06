@@ -1,13 +1,10 @@
-import { Link } from "react-router-dom";
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 // Import Components
 import Loading from "../components/Loading";
-import Header from "../components/Header";
 import Hero from "../components/Hero";
-import Footer from "../components/Footer";
+import OfferVignette from "../components/OfferVignette";
 
 // ------------------------------------------------------
 const Home = () => {
@@ -21,7 +18,6 @@ const Home = () => {
           "https://vinted-duplicate.herokuapp.com/offers"
         );
         setData(response.data);
-        console.log(data);
         setIsLoading(false);
       } catch (error) {
         console.log(error.message);
@@ -33,14 +29,12 @@ const Home = () => {
   return isLoading ? (
     <Loading />
   ) : (
-    <div>
-      <Header />
-      <main>
-        <Hero />
-        <Link to={"/offer"}>Go to offer page</Link>
-      </main>
-      <Footer />
-    </div>
+    <main>
+      <Hero />
+      {data.offers.map((elem) => {
+        return <OfferVignette key={elem._id} data={elem} />;
+      })}
+    </main>
   );
 };
 
