@@ -1,9 +1,10 @@
 import logoVinted from "../assets/img/logo-vinted.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Header = ({ userToken, setUser }) => {
+  const history = useHistory();
   return (
     <header className="container">
       <Link to="/">
@@ -30,7 +31,13 @@ const Header = ({ userToken, setUser }) => {
         </div>
       )}
 
-      <button>Vends tes articles</button>
+      <button
+        onClick={() => {
+          history.push("/publish");
+        }}
+      >
+        Vends tes articles
+      </button>
     </header>
   );
 };

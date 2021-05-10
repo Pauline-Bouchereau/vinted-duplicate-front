@@ -1,15 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import noAvatar from "../assets/img/no-avatar-profile.jpeg";
 
 const OfferVignette = ({ data }) => {
   return (
     <Link to={`/offer/${data._id}`}>
       <div className="offer-vignette">
         <div>
-          <img
-            src={data.owner.account.avatar.secure_url}
-            alt={`Avatar de ${data.owner.account.username}`}
-          />
+          {data.owner.account.avatar.secure_url ? (
+            <img
+              src={data.owner.account.avatar.secure_url}
+              alt={`Avatar de ${data.owner.account.username}`}
+            />
+          ) : (
+            <img src={noAvatar} alt="" />
+          )}
+
           <span>{data.owner.account.username}</span>
         </div>
         <img src={data.product_image.secure_url} alt={data.product_name} />

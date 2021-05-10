@@ -31,9 +31,11 @@ const Home = () => {
   ) : (
     <main>
       <Hero />
-      {data.offers.map((elem) => {
-        return <OfferVignette key={elem._id} data={elem} />;
-      })}
+      <div className="container">
+        {data.offers.map((elem) => {
+          return <OfferVignette key={elem._id} data={elem} />;
+        })}
+      </div>
     </main>
   );
 };

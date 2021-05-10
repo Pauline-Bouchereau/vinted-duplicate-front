@@ -8,13 +8,19 @@ import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import SignUp from "./containers/SignUp";
 import LogIn from "./containers/LogIn";
+import Publish from "./containers/Publish";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 // Import FontAwesome
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch, faHeart } from "@fortawesome/free-solid-svg-icons";
-library.add(faSearch, faHeart);
+import {
+  faSearch,
+  faHeart,
+  faEye,
+  faEyeSlash,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(faSearch, faHeart, faEye, faEyeSlash);
 
 // ------------------------------------------------------
 function App() {
@@ -39,6 +45,9 @@ function App() {
         </Route>
         <Route path="/login">
           <LogIn setUser={setUser} />
+        </Route>
+        <Route path="/publish">
+          <Publish />
         </Route>
         <Route path="/offer/:id">
           <Offer />

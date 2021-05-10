@@ -1,5 +1,11 @@
+import loading from "../assets/img/spinner.svg";
+
 const Loading = () => {
-  return <div>En cours de chargement ...</div>;
+  return (
+    <div className="loading">
+      <img src={loading} alt="Gif de chargement" />
+    </div>
+  );
 };
 
 export default Loading;

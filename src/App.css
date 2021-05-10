@@ -29,13 +29,28 @@ h2 {
   line-height: 42px;
 }
 
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 32px;
+  margin-bottom: 40px;
+}
+
 /* Buttons */
-button {
+button,
+input[type="submit"] {
   background-color: var(--vinted-color);
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: inherit;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* ------------------- */
@@ -60,7 +75,9 @@ header > form > div {
   padding: 10px 15px;
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
+
 header .icon {
   margin-right: 15px;
   color: var(--grey-text);
@@ -71,6 +88,7 @@ header input {
   border: none;
   height: 20px;
   width: 100%;
+  margin: none;
 }
 
 header input:focus {
@@ -95,6 +113,19 @@ header > div button:first-child {
 /* ------------------- */
 /* Main */
 /* ------------------- */
+
+/* Loading Page */
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 200px);
+}
+
+.loading img {
+  height: 350px;
+}
 
 /* Hero banner */
 main > div:first-child {
@@ -122,15 +153,29 @@ main > div:first-child > div {
 main > div:first-child button {
   width: 190px;
   height: 45px;
+  font-size: 16px;
 }
 
 /* Offer vignettes */
+main > div:nth-child(2) {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+}
 
 .offer-vignette {
   border: 1px solid black;
   margin-bottom: 10px;
-  width: 300px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  height: 450px;
 }
+
+.offer-vignette:not(:nth-child(5n)) {
+  margin-right: 15px;
+}
+
 .offer-vignette div:first-child {
   display: flex;
   align-items: center;
@@ -143,6 +188,56 @@ main > div:first-child button {
   margin: 10px;
 }
 
+.offer-vignette > img:nth-child(2) {
+  height: 355px;
+  width: 100%;
+}
+
+/* Sign Up & LogIn */
+main form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 70px auto;
+  width: 265px;
+}
+
+main input[type="text"],
+main input[type="password"],
+main input[type="email"] {
+  border: none;
+  border-bottom: solid 1px var(--light-grey);
+  width: 260px;
+  height: 25px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--grey-text);
+}
+
+main input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  margin-bottom: none;
+  margin-right: 20px;
+}
+
+main input[type="submit"] {
+  height: 45px;
+  width: 260px;
+  font-size: 18px;
+}
+
+form > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form a {
+  color: var(--vinted-color);
+}
 /* ------------------- */
 /* Footer */
 /* ------------------- */
