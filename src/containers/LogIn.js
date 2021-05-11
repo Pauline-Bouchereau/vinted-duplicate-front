@@ -41,10 +41,11 @@ const LogIn = ({ setUser, serverUrl }) => {
   };
 
   return (
-    <main className="login-signup">
+    <main className="forms-main">
       <form onSubmit={handleSubmit}>
         <h3>Se connecter</h3>
-        <p>{errorMessage} </p>
+        {errorMessage && <p className="warning">{errorMessage} </p>}
+
         <input
           type="email"
           value={email}
@@ -52,9 +53,6 @@ const LogIn = ({ setUser, serverUrl }) => {
           onChange={(event) => setEmail(event.target.value)}
           onClick={handleClick}
         />
-        {!email && missingParameter && (
-          <p>Complète ces informations pour continuer</p>
-        )}
         <div>
           <input
             type={visiblePassword ? "text" : "password"}
@@ -78,8 +76,10 @@ const LogIn = ({ setUser, serverUrl }) => {
             />
           )}
         </div>
-        {!password && missingParameter && (
-          <p>Complète ces informations pour continuer</p>
+        {(!password || !email) && missingParameter && (
+          <p className="warning">
+            Complète toutes les informations pour continuer
+          </p>
         )}
 
         <input

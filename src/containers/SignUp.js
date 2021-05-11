@@ -43,10 +43,11 @@ const SignUp = ({ setUser, serverUrl }) => {
   };
 
   return (
-    <main className="login-signup">
+    <main className="forms-main">
       <form onSubmit={handleSubmit}>
         <h3>S'inscrire</h3>
-        <p>{errorMessage}</p>
+        {errorMessage && <p>{errorMessage}</p>}
+
         <input
           type="text"
           placeholder="Nom d'utilisateur"
@@ -56,9 +57,6 @@ const SignUp = ({ setUser, serverUrl }) => {
           }}
           onClick={handleClick}
         />
-        {!username && missingParameter && (
-          <p>Complète ces informations pour continuer</p>
-        )}
         <input
           type="email"
           placeholder="Adresse email"
@@ -68,9 +66,6 @@ const SignUp = ({ setUser, serverUrl }) => {
           }}
           onClick={handleClick}
         />
-        {!email && missingParameter && (
-          <p>Complète ces informations pour continuer</p>
-        )}
         <div>
           <input
             type={visiblePassword ? "text" : "password"}
@@ -95,11 +90,15 @@ const SignUp = ({ setUser, serverUrl }) => {
             />
           )}
         </div>
-        {!password && missingParameter && (
-          <p>Complète ces informations pour continuer</p>
-        )}
+
         {password && password.length < 7 && (
-          <p>Mot de passe : 7 cractères minimum</p>
+          <p className="warning">Mot de passe : 7 caractères minimum</p>
+        )}
+
+        {(!password || !email || !username) && missingParameter && (
+          <p className="warning">
+            Complète toutes ces informations pour continuer
+          </p>
         )}
         {/* Checkbox not functional --> need to modify BDD model */}
         <div>

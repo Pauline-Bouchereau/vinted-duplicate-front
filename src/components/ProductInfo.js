@@ -2,16 +2,17 @@ import { Link } from "react-router-dom";
 
 const ProductInfo = ({ data }) => {
   return (
-    <div>
+    <div className="product-info">
       <img src={data.product_image.secure_url} alt={data.product_name} />
       <div>
-        <p>{data.product_price}</p>
+        <h3>{data.product_name}</h3>
+        <p>Prix : {data.product_price}€</p>
         <div>
-          <span>{data.product_details[0].MARQUE} </span>
-          <span>{data.product_details[1].TAILLE}</span>
-          <span>{data.product_details[2].ÉTAT}</span>
-          <span>{data.product_details[3].COULEUR}</span>
-          <span>{data.product_details[4].EMPLACEMENT}</span>
+          <p>Marque : {data.product_details[0].MARQUE} </p>
+          <p>Taille : {data.product_details[1].TAILLE}</p>
+          <p>Etat : {data.product_details[2].ÉTAT}</p>
+          <p>Couleur : {data.product_details[3].COULEUR}</p>
+          <p>Ville : {data.product_details[4].EMPLACEMENT}</p>
         </div>
         <Link
           to={{

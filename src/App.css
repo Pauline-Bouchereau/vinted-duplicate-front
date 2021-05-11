@@ -18,6 +18,10 @@
   margin: 0 auto;
 }
 
+.hidden {
+  display: none;
+}
+
 /* Images */
 img {
   object-fit: cover;
@@ -27,6 +31,7 @@ img {
 h2 {
   font-size: 34px;
   line-height: 42px;
+  margin-bottom: 40px;
 }
 
 h3 {
@@ -34,6 +39,7 @@ h3 {
   font-weight: bold;
   line-height: 32px;
   margin-bottom: 40px;
+  margin-top: 20px;
 }
 
 /* Buttons */
@@ -45,6 +51,10 @@ input[type="submit"] {
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
+}
+
+.disabled {
+  opacity: 0.7;
 }
 
 /* Links */
@@ -127,48 +137,52 @@ header > div button:first-child {
 }
 
 /* Hero banner */
-main > div:first-child {
+.home > div:first-child {
   position: relative;
 }
 
-main > div:first-child img {
+.home > div:first-child img {
   width: 100%;
   height: 415px;
 }
 
-main > div:first-child > div {
+.home > div:first-child > div {
   position: absolute;
   top: 80px;
   left: 40px;
   height: 260px;
   width: 400px;
   background-color: #fff;
+  border-radius: 5px;
   padding: 40px 35px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-main > div:first-child button {
+.home > div:first-child button {
   width: 190px;
   height: 45px;
   font-size: 16px;
 }
 
 /* Offer vignettes */
-main > div:nth-child(2) {
+.home > div:nth-child(2) > div {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .offer-vignette {
-  border: 1px solid black;
   margin-bottom: 10px;
-  width: 240px;
+  width: 220px;
   display: flex;
   flex-direction: column;
   height: 450px;
+  cursor: pointer;
+  padding: 5px;
 }
 
 .offer-vignette:not(:nth-child(5n)) {
@@ -190,10 +204,35 @@ main > div:nth-child(2) {
 .offer-vignette > img:nth-child(2) {
   height: 355px;
   width: 100%;
+  margin-bottom: 10px;
+}
+
+.offer-vignette > div:nth-child(3) {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offer-vignette p {
+  font-size: 18px;
+}
+
+.home p > span {
+  cursor: pointer;
+}
+
+.home p > span:hover {
+  font-weight: bold;
+}
+
+.home > div > button {
+  height: 25px;
+  margin-right: 20px;
+  margin-top: 20px;
 }
 
 /* Sign Up & LogIn */
-.login-signup form {
+.forms-main form,
+.checkout-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -202,43 +241,45 @@ main > div:nth-child(2) {
   width: 265px;
 }
 
-.login-signup input[type="text"],
-.login-signup input[type="password"],
-.login-signup input[type="email"] {
+.forms-main input[type="text"],
+.forms-main input[type="password"],
+.forms-main input[type="email"] {
   border: none;
   border-bottom: solid 1px var(--light-grey);
   width: 260px;
   height: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-size: 18px;
 }
 
-.login-signup input[type="checkbox"] {
+.forms-main input[type="checkbox"] {
   width: 25px;
   height: 25px;
   margin-bottom: none;
   margin-right: 20px;
 }
 
-.login-signup input[type="submit"] {
+.forms-main input[type="submit"],
+.checkout-form input[type="submit"],
+.product-info button {
   height: 45px;
   width: 260px;
   font-size: 18px;
   margin-bottom: 20px;
 }
 
-.login-signup form > div {
+.forms-main form > div {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.login-signup form a {
+.forms-main form a {
   color: var(--vinted-color);
 }
 
-.login-signup form p {
+.forms-main form p {
   font-size: 18px;
 }
 
@@ -255,14 +296,100 @@ main > div:nth-child(2) {
   text-align: justify;
 }
 
+.forms-main form .warning {
+  margin-bottom: 15px;
+  color: rgb(230, 82, 82);
+  text-align: center;
+  font-size: 15px;
+}
+
+/* Offer/product info */
+.product-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.product-info > div {
+  background-color: var(--light-grey);
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-info img {
+  width: 400px;
+  height: 400px;
+  margin-right: 30px;
+}
+
+.product-info p {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.product-info > div > div {
+  margin-bottom: 30px;
+}
+
+/* Publish offer */
+
+.forms-main label {
+  background-color: var(--vinted-color);
+  color: #fff;
+  width: 150px;
+  height: 25px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 25px;
+}
+
+.forms-main img {
+  height: 80px;
+  width: 80px;
+  margin-left: 20px;
+}
+
+.forms-main .publish-div {
+  flex-direction: column;
+}
+
+.forms-main .publish-div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forms-main .publish-div > div span {
+  margin-bottom: 25px;
+  display: block;
+  margin-right: 20px;
+  font-size: 20px;
+}
+
 /* Checkout Form */
+
+.checkout-form p {
+  margin-bottom: 20px;
+  width: 350px;
+  line-height: 20px;
+}
+
+.checkout-form p span {
+  color: var(--vinted-color);
+  font-weight: bold;
+}
 
 .StripeElement,
 .StripeElement--empty {
-  border: 1px solid black;
-  background-color: var(--light-grey);
-  width: 600px;
+  width: 500px;
   height: 50px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 /* ------------------- */

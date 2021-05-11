@@ -9,7 +9,7 @@ import PublishConfirmation from "../components/PublishConfirmation";
 const Publish = ({ serverUrl }) => {
   const [offerPublished, setOfferPublished] = useState(false);
   const [responseAxios, setResponseAxios] = useState({});
-  const [picture, setPicture] = useState({});
+  const [picture, setPicture] = useState();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
@@ -48,7 +48,7 @@ const Publish = ({ serverUrl }) => {
   };
 
   return (
-    <div>
+    <main>
       {!token && <Redirect push to="/login" />}
       {offerPublished ? (
         <PublishConfirmation response={responseAxios} />
@@ -69,31 +69,11 @@ const Publish = ({ serverUrl }) => {
           color={color}
           setColor={setColor}
           handleSubmit={handleSubmit}
+          picture={picture}
+          description={description}
         />
       )}
-    </div>
+    </main>
   );
 };
 export default Publish;
-
-// token ? (
-// <PublishForm
-//   setPicture={setPicture}
-//   title={title}
-//   setTitle={setTitle}
-//   setDescription={setDescription}
-//   brand={brand}
-//   setBrand={setBrand}
-//   condition={condition}
-//   setCondition={setCondition}
-//   price={price}
-//   setPrice={setPrice}
-//   size={size}
-//   setSize={setSize}
-//   color={color}
-//   setColor={setColor}
-//   handleSubmit={handleSubmit}
-// />
-//   ) : (
-//     <Redirect to="/login" />
-//   );

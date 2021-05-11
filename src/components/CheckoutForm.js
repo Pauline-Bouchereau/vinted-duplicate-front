@@ -67,13 +67,13 @@ const CheckoutForm = ({ userToken, serverUrl }) => {
   return isLoading ? (
     <Loading />
   ) : (
-    <main>
+    <main className="container">
       <form onSubmit={handleSubmit} className="checkout-form">
         <h3>Validation de commande</h3>
         <p>
-          Pour valider votre commande de <span>{data.product_name}</span>, d'un
-          montant de <span>{data.product_price}€</span>, veuillez renseigner vos
-          coordonnées bancaires ci-dessous et valider le paiement.
+          Pour valider ta commande de <span>{data.product_name}</span>, d'un
+          montant de <span>{data.product_price}€</span>, renseigne tes
+          coordonnées bancaires ci-dessous et valide le paiement.
         </p>
         <p>{message}</p>
         <CardElement />

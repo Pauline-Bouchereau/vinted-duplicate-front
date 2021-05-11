@@ -7,7 +7,7 @@ const OfferVignette = ({ data }) => {
     <Link to={`/offer/${data._id}`}>
       <div className="offer-vignette">
         <div>
-          {data.owner.account.avatar.secure_url ? (
+          {data.owner.account.avatar ? (
             <img
               src={data.owner.account.avatar.secure_url}
               alt={`Avatar de ${data.owner.account.username}`}
@@ -20,9 +20,9 @@ const OfferVignette = ({ data }) => {
         </div>
         <img src={data.product_image.secure_url} alt={data.product_name} />
         <div>
-          <span>{data.product_price}</span>
+          <span>{data.product_price}€</span>
           <span>
-            <FontAwesomeIcon icon="heart" />8
+            <FontAwesomeIcon icon="heart" /> 8
           </span>
         </div>
         <p>{data.product_details[1].TAILLE}</p>
