@@ -116,7 +116,9 @@ const SignUp = ({ setUser }) => {
           disabled={!password || !email || !username}
           className={!password || !email || !username ? "disabled" : ""}
         />
-        <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+        <Link replace to="/login">
+          Tu as déjà un compte ? Connecte-toi !
+        </Link>
       </form>
     </main>
   );

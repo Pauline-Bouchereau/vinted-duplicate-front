@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 const ProductInfo = ({ data }) => {
-  console.log(data);
   return (
     <div>
       <img src={data.product_image.secure_url} alt={data.product_name} />
@@ -14,7 +13,12 @@ const ProductInfo = ({ data }) => {
           <span>{data.product_details[3].COULEUR}</span>
           <span>{data.product_details[4].EMPLACEMENT}</span>
         </div>
-        <Link to="/payment">
+        <Link
+          to={{
+            pathname: `/payment`,
+            search: `?productId=${data._id}`,
+          }}
+        >
           <button>Acheter !</button>
         </Link>
       </div>

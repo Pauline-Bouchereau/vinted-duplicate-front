@@ -228,12 +228,12 @@ main input[type="submit"] {
   margin-bottom: 20px;
 }
 
-form > div {
+/* form > div {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-}
+} */
 
 form a {
   color: var(--vinted-color);
@@ -262,8 +262,8 @@ form p {
 .StripeElement--empty {
   border: 1px solid black;
   background-color: var(--light-grey);
-  width: 200px;
-  height: 15px;
+  width: 600px;
+  height: 50px;
 }
 
 /* ------------------- */

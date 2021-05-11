@@ -88,7 +88,9 @@ const LogIn = ({ setUser }) => {
           disabled={!password || !email}
           className={!password || !email ? "disabled" : ""}
         />
-        <Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
+        <Link replace to="/signup">
+          Pas encore de compte ? Inscris-toi !
+        </Link>
       </form>
     </main>
   );
