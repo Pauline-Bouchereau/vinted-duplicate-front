@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const SignUp = ({ setUser }) => {
+const SignUp = ({ setUser, serverUrl }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,10 +16,11 @@ const SignUp = ({ setUser }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "https://vinted-duplicate.herokuapp.com/user/signup",
-        { username: username, email: email, password: password }
-      );
+      const response = await axios.post(`${serverUrl}/user/signup`, {
+        username: username,
+        email: email,
+        password: password,
+      });
       const token = response.data.token;
       setUser(token);
       history.goBack();

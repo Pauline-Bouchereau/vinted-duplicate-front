@@ -5,7 +5,7 @@ import axios from "axios";
 import Loading from "../components/Loading";
 import ProductInfo from "../components/ProductInfo";
 
-const Offer = () => {
+const Offer = ({ serverUrl }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -14,9 +14,7 @@ const Offer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://vinted-duplicate.herokuapp.com/offer/${id}`
-        );
+        const response = await axios.get(`${serverUrl}/offer/${id}`);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -24,7 +22,7 @@ const Offer = () => {
       }
     };
     fetchData();
-  }, [id]);
+  }, [id, serverUrl]);
 
   return isLoading ? (
     <Loading />

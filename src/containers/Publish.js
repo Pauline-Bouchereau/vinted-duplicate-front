@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import PublishForm from "../components/PublishForm";
 import PublishConfirmation from "../components/PublishConfirmation";
 
-const Publish = () => {
+const Publish = ({ serverUrl }) => {
   const [offerPublished, setOfferPublished] = useState(false);
   const [responseAxios, setResponseAxios] = useState({});
   const [picture, setPicture] = useState({});
@@ -34,7 +34,7 @@ const Publish = () => {
       formData.append("city", "Paris");
 
       const response = await axios.post(
-        "https://vinted-duplicate.herokuapp.com/offer/publish",
+        `${serverUrl}/offer/publish`,
         formData,
         {
           headers: { authorization: `Bearer ${token}` },

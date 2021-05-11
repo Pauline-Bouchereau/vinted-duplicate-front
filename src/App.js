@@ -28,6 +28,8 @@ library.add(faSearch, faHeart, faEye, faEyeSlash);
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
 
+  const serverUrl = "http://localhost:3001";
+
   const setUser = (token) => {
     if (token) {
       Cookies.set("userToken", token, { expires: 10 });
@@ -43,22 +45,22 @@ function App() {
       <Header userToken={userToken} setUser={setUser} />
       <Switch>
         <Route path="/signup">
-          <SignUp setUser={setUser} />
+          <SignUp setUser={setUser} serverUrl={serverUrl} />
         </Route>
         <Route path="/login">
-          <LogIn setUser={setUser} />
+          <LogIn setUser={setUser} serverUrl={serverUrl} />
         </Route>
         <Route path="/publish">
-          <Publish />
+          <Publish serverUrl={serverUrl} />
         </Route>
         <Route path="/offer/:id">
-          <Offer />
-        </Route>
-        <Route exact path="/">
-          <Home />
+          <Offer serverUrl={serverUrl} />
         </Route>
         <Route exact path="/payment">
-          <Payment userToken={userToken} />
+          <Payment userToken={userToken} serverUrl={serverUrl} />
+        </Route>
+        <Route exact path="/">
+          <Home serverUrl={serverUrl} />
         </Route>
         <Route path="*">
           <NotFound />

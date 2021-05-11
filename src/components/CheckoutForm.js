@@ -5,7 +5,7 @@ import axios from "axios";
 
 import Loading from "../components/Loading";
 
-const CheckoutForm = ({ userToken }) => {
+const CheckoutForm = ({ userToken, serverUrl }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -21,9 +21,7 @@ const CheckoutForm = ({ userToken }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://vinted-duplicate.herokuapp.com/offer/${productId}`
-        );
+        const response = await axios.get(`${serverUrl}/offer/${productId}`);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -31,7 +29,7 @@ const CheckoutForm = ({ userToken }) => {
       }
     };
     fetchData();
-  }, [productId]);
+  }, [productId, serverUrl]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,10 +45,10 @@ const CheckoutForm = ({ userToken }) => {
 
       // Send request to server
       const response = await axios.post(
-        "http://localhost:3001/payment",
+        `${serverUrl}/payment`,
         {
           stripeToken: stripeToken,
-          productId: productId,
+          productId: "60928fb182860500150368b1",
         },
         { headers: { authorization: `Bearer ${userToken}` } }
       );

@@ -7,7 +7,7 @@ import Hero from "../components/Hero";
 import OfferVignette from "../components/OfferVignette";
 
 // ------------------------------------------------------
-const Home = () => {
+const Home = ({ serverUrl }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
   // const [limit, setLimit] = useState("");
@@ -17,7 +17,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://vinted-duplicate.herokuapp.com/offers"
+          `${serverUrl}/offers`
           // { params: { limit: limit, skip: skip } }
         );
         setData(response.data);
@@ -27,7 +27,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [serverUrl]);
 
   return isLoading ? (
     <Loading />
