@@ -75,7 +75,6 @@ header > form > div {
   padding: 10px 15px;
   display: flex;
   align-items: center;
-  margin-top: 20px;
 }
 
 header .icon {
@@ -194,7 +193,7 @@ main > div:nth-child(2) {
 }
 
 /* Sign Up & LogIn */
-main form {
+.login-signup form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -203,9 +202,9 @@ main form {
   width: 265px;
 }
 
-main input[type="text"],
-main input[type="password"],
-main input[type="email"] {
+.login-signup input[type="text"],
+.login-signup input[type="password"],
+.login-signup input[type="email"] {
   border: none;
   border-bottom: solid 1px var(--light-grey);
   width: 260px;
@@ -214,32 +213,32 @@ main input[type="email"] {
   font-size: 18px;
 }
 
-main input[type="checkbox"] {
+.login-signup input[type="checkbox"] {
   width: 25px;
   height: 25px;
   margin-bottom: none;
   margin-right: 20px;
 }
 
-main input[type="submit"] {
+.login-signup input[type="submit"] {
   height: 45px;
   width: 260px;
   font-size: 18px;
   margin-bottom: 20px;
 }
 
-/* form > div {
+.login-signup form > div {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-} */
+}
 
-form a {
+.login-signup form a {
   color: var(--vinted-color);
 }
 
-form p {
+.login-signup form p {
   font-size: 18px;
 }
 

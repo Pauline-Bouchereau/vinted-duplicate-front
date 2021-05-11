@@ -43,7 +43,7 @@ const SignUp = ({ setUser, serverUrl }) => {
   };
 
   return (
-    <main>
+    <main className="login-signup">
       <form onSubmit={handleSubmit}>
         <h3>S'inscrire</h3>
         <p>{errorMessage}</p>

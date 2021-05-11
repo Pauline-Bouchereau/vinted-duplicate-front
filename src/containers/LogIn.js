@@ -41,7 +41,7 @@ const LogIn = ({ setUser, serverUrl }) => {
   };
 
   return (
-    <main>
+    <main className="login-signup">
       <form onSubmit={handleSubmit}>
         <h3>Se connecter</h3>
         <p>{errorMessage} </p>
