@@ -81,9 +81,17 @@ const SignUp = ({ setUser }) => {
             onClick={handleClick}
           />
           {visiblePassword ? (
-            <FontAwesomeIcon icon="eye-slash" onClick={handleClickIcon} />
+            <FontAwesomeIcon
+              icon="eye-slash"
+              onClick={handleClickIcon}
+              className="eye"
+            />
           ) : (
-            <FontAwesomeIcon icon="eye" onClick={handleClickIcon} />
+            <FontAwesomeIcon
+              icon="eye"
+              onClick={handleClickIcon}
+              className="eye"
+            />
           )}
         </div>
         {!password && missingParameter && (
@@ -97,8 +105,8 @@ const SignUp = ({ setUser }) => {
           <input type="checkbox" />
           <p>S'inscrire à notre newsletter</p>
         </div>
-        <p>
-          En m'inscrivant je confirme avoir lu et accepté les Termes &amp;
+        <p className="legal">
+          En m'inscrivant, je confirme avoir lu et accepté les Termes &amp;
           Conditions et Politique de Confidentialité de Vinted. Je confirme
           avoir au moins 18 ans.{" "}
         </p>

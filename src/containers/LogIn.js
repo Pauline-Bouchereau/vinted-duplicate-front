@@ -66,13 +66,13 @@ const LogIn = ({ setUser }) => {
 
           {visiblePassword ? (
             <FontAwesomeIcon
-              className="icon"
+              className="eye"
               icon="eye-slash"
               onClick={handleClickIcon}
             />
           ) : (
             <FontAwesomeIcon
-              className="icon"
+              className="eye"
               icon="eye"
               onClick={handleClickIcon}
             />
@@ -84,7 +84,7 @@ const LogIn = ({ setUser }) => {
 
         <input
           type="submit"
-          valeur="Se Connecter"
+          value="Se Connecter"
           disabled={!password || !email}
           className={!password || !email ? "disabled" : ""}
         />

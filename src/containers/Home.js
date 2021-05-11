@@ -10,12 +10,15 @@ import OfferVignette from "../components/OfferVignette";
 const Home = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  // const [limit, setLimit] = useState("");
+  //const [skip, setSkip] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
           "https://vinted-duplicate.herokuapp.com/offers"
+          // { params: { limit: limit, skip: skip } }
         );
         setData(response.data);
         setIsLoading(false);
@@ -35,6 +38,30 @@ const Home = () => {
         {data.offers.map((elem) => {
           return <OfferVignette key={elem._id} data={elem} />;
         })}
+        <p>
+          Nombre de résultats par page{" "}
+          <span
+          // onClick={() => {
+          //   setLimit(5);
+          // }}
+          >
+            5
+          </span>{" "}
+          <span
+          // onClick={() => {
+          //   setLimit(10);
+          // }}
+          >
+            10
+          </span>
+          <span
+          // onClick={() => {
+          //   setLimit(20);
+          // }}
+          >
+            20
+          </span>
+        </p>
       </div>
     </main>
   );

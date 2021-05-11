@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const ProductInfo = ({ data }) => {
   console.log(data);
   return (
@@ -12,6 +14,9 @@ const ProductInfo = ({ data }) => {
           <span>{data.product_details[3].COULEUR}</span>
           <span>{data.product_details[4].EMPLACEMENT}</span>
         </div>
+        <Link to="/payment">
+          <button>Acheter !</button>
+        </Link>
       </div>
     </div>
   );

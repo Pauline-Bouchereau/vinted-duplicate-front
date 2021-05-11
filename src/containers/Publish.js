@@ -49,7 +49,7 @@ const Publish = () => {
 
   return (
     <div>
-      {!token && <Redirect to="/login" />}
+      {!token && <Redirect push to="/login" />}
       {offerPublished ? (
         <PublishConfirmation response={responseAxios} />
       ) : (

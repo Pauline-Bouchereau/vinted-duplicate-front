@@ -25,7 +25,7 @@ const Header = ({ userToken, setUser }) => {
             <button>S'inscrire</button>
           </Link>
 
-          <Link to="login">
+          <Link to="/login">
             <button>Se connecter</button>
           </Link>
         </div>

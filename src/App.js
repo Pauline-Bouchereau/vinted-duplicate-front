@@ -11,6 +11,8 @@ import LogIn from "./containers/LogIn";
 import Publish from "./containers/Publish";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import NotFound from "./containers/NotFound";
+import Payment from "./containers/Payment";
 
 // Import FontAwesome
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -52,8 +54,14 @@ function App() {
         <Route path="/offer/:id">
           <Offer />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/payment">
+          <Payment userToken={userToken} />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
       <Footer />
