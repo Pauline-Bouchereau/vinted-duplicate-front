@@ -28,7 +28,7 @@ library.add(faSearch, faHeart, faEye, faEyeSlash);
 function App() {
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
 
-  const serverUrl = "http://localhost:3001";
+  const serverUrl = "https://vinted-duplicate.herokuapp.com";
 
   const setUser = (token) => {
     if (token) {
