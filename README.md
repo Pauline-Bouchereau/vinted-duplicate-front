@@ -7,7 +7,7 @@
 👉 Netlify Link to see the live version [HERE](https://vinted-duplicate-pb.netlify.app/)  
 👉 Repo for the Backend of this project [HERE](https://github.com/Pauline-Bouchereau/vinted-duplicate)
 
-![Homepage of the website](./src/assets/img/homepage.png)
+![Homepage of the website](./src/assets/img/vinted.png)
 
 _Made in 2021 @ Le Reacteur_
 
